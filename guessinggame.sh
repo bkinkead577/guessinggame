@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
-#  guessing game
+# guessing game
 # Brian Kinkead
 # 2/15/2023
 
-#file_lines=$(cat guessinggame.sh | wc -l)
-num_files=$( ls | wc -l)
-echo $num_files
+function get_file_count {
+  local num_files=0
+  #file_lines=$(cat guessinggame.sh | wc -l)
+  let  num_files=$( ls | wc -l)
+  echo $num_files
+}
+
+num_files=$(get_file_count)
+#echo $num_files
 
 count=1
 
-echo "Enter number of files in current directory:"
+echo "How many files are in the current directory? Enter your guess:"
 read userguess
 
 while [[ $userguess -ne $num_files ]]
