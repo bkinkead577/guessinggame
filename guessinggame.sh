@@ -3,17 +3,18 @@
 # Brian Kinkead
 # 2/15/2023
 
-file_lines=$(cat guessinggame.sh | wc -l)
-echo $file_lines
+#file_lines=$(cat guessinggame.sh | wc -l)
+num_files=$( ls | wc -l)
+echo $num_files
 
 count=1
 
-echo "Enter number of lines in guessinggame.sh"
+echo "Enter number of files in current directory:"
 read userguess
 
-while [[ $userguess -ne $file_lines ]]
+while [[ $userguess -ne $num_files ]]
 do
-	if [[ $userguess -lt $file_lines ]]
+	if [[ $userguess -lt $num_files ]]
 	then
 	  echo "Sorry, guess is too low. Try again..."
 	else
@@ -23,7 +24,7 @@ do
 	read userguess
 done
 
-echo "Correct! You guessed: $userguess in $count trie(s)!"
+echo "Correct! You guessed: $userguess in $count try(s)!"
 
 
 
